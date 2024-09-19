@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Traversal with Animation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">Graph Analysis Tool</div>
+            <div class="navbar-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Graph Traversal with Animation</h1>
+        <div class="container">
+            <div class="input-section">
+                <label for="algorithm"><i class="fas fa-code"></i> Choose an algorithm:</label>
+                <select id="algorithm">
+                    <option value="bfs">BFS</option>
+                    <option value="dfs">DFS</option>
+                    <option value="dijkstra">Dijkstra</option>
+                </select>
+
+                <label for="start_node"><i class="fas fa-flag"></i> Enter Starting Node:</label>
+                <input type="text" id="start_node" placeholder="e.g. 1">
+
+                <label for="graph_input"><i class="fas fa-project-diagram"></i> Enter Graph (in JSON format):</label>
+                <textarea id="graph_input" rows="10" cols="50" placeholder='{"1": [["2", 1], ["3", 2]], "2": [["4", 3]], "3": [["4", 4]]}'></textarea>
+
+                <button onclick="runTraversal()">Run Traversal <i class="fas fa-play"></i></button>
+            </div>
+
+            <div id="result" class="result-section"></div>
+            <div id="graph" class="graph-section"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Graph Analysis Tool &copy; 2024</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
